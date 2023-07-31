@@ -1,0 +1,56 @@
+.button-default{
+    margin: var(--rounded-margin);
+    border-radius: var(--border-radius); /* This is an example to show the rounded corner; you can use the variable here too */
+    background-color: var(--pink-color);
+    border-color: var( --pink-border-color);
+    font-family: arial, sans-serif;
+    color: var(--pink-font-color);
+    width: 100px;
+    height: 50px;
+  }
+  .title-flex-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  .buttons-container{
+      width: 30%;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      
+    }
+  
+  .body-component{
+      height: 90vh;
+      width: 70vw;  /* 70% of the viewport height */
+      margin: 0 15%; /* Remove default body margin */
+  }
+  
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    
+  }
+  
+  td, th {
+    border: 1px solid var(--pink-table-border-color);
+    text-align: left;
+    padding: 8px;
+    
+  }
+  
+  tr:nth-child(even) {
+    background-color: var( --pink-border-color);
+  }
+  .product-link {
+    color: purple; /* Change the color to your desired hyperlink color */
+    text-decoration: underline; /* Add underline to resemble a hyperlink */
+    cursor: pointer; /* Change the cursor to indicate it's clickable */
+  }
+  .quantity-container{
+    display: inline;
+    align-items: center;
+    justify-content: center;
+  }
+  
