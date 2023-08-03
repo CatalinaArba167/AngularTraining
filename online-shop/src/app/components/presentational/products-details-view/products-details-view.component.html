@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Product details</title>
+</head>
+<body>
+    <div class="body-component">
+        <div class="title-flex-container">
+            <h1>Product Name: {{ product?.productName }}</h1>
+            <div class="buttons-container">
+                <button class="button-default">Edit</button>
+                <button class="button-default">Delete</button>
+            </div>
+        </div>
+        <div class="details-container">
+            <!-- Split the description from other attributes -->
+            <!-- [Name, Category Price][Image] -->
+            <div class="horizontal-details">
+                <!-- [Name, Category Price]-->
+                <div class="vertical-details">
+                    <div class="name">
+                        <div class="attribute"><p>Name:</p></div>
+                        <div class="attribute-value"><p>{{product?.productName}}</p></div>
+                    </div>
+                    <div class="category">
+                        <div class="attribute"><p>Category:</p></div>
+                        <div class="attribute-value"><p>{{product?.productCategoryName}}</p></div>
+                    </div>
+                    <div class="price">
+                        <div class="attribute"><p>Price:</p></div>
+                        <div class="attribute-value"><p>{{product?.  productPrice}}</p></div>
+                    </div>
+                </div> 
+                <!--[Image] -->    
+                <div class="image-container">
+                    <img src="https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?cs=srgb&dl=pexels-karolina-grabowska-4041392.jpg&fm=jpg" alt="Image Description">
+                </div>    
+            </div> 
+            <!-- [Description] -->
+            <div class="description">
+                <div class="attribute-description"><p>Description:</p></div>
+                <div class="attribute-value-description"><p>{{product?.productDescription}}</p></div>
+            </div>            
+        </div>
+        <button class="button-default" [routerLink]="['']">Back</button>
+    </div>
+</body>
+</html>

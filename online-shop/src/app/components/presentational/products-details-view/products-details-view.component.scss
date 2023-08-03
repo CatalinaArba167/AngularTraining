@@ -1,0 +1,103 @@
+.button-default{
+    margin: var(--rounded-margin);
+    border-radius: var(--border-radius); /* This is an example to show the rounded corner; you can use the variable here too */
+    background-color: var(--pink-color);
+    border-color: var( --pink-border-color);
+    font-family: arial, sans-serif;
+    color: var(--pink-font-color);
+    width: 100px;
+    height: 50px;
+  }
+  .title-flex-container {
+      display: flex;
+      justify-content: space-between;
+    }
+  .buttons-container{
+      width: 30%;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      
+    }
+  
+  .body-component{
+      height: 90vh;
+      width: 70vw; 
+      margin: 0 15%; 
+  }
+
+  
+.horizontal-details{
+    // background-color: purple;
+    display: flex; 
+    justify-content:space-between;
+    width: 70vw;
+    
+}
+.vertical-details{
+    // background-color: pink;
+    width: 45vw ;
+}
+.image-container{
+    // background-color: aqua;
+    height: 15vh;
+}
+.image-container img {
+    width: auto; 
+    max-height: 100%; 
+}
+
+.attribute{
+    // background-color: yellow;
+    display: flex; 
+    justify-content: end;
+    min-width: 10vw;
+}
+.attribute-description{
+    // background-color: yellow;
+    display: flex; 
+    justify-content: end;
+    min-width: 10vw;
+}
+
+
+.attribute-value{
+    // background-color: orange;
+    margin-left: 3vw;
+    align-items: left;
+    word-break: break-all;
+    width: 65vw;
+    max-width: 65vw; 
+}
+.attribute-value-description{
+    // background-color: orange;
+    margin-left: 3vw;
+    align-items: left;
+    word-break: break-all;
+    width: 60vw; 
+}
+.name{
+    // background-color: red;
+    display: flex; 
+    height: 5vh;
+}
+.price{
+    // background-color: red;
+    display: flex; 
+    height: 5vh;
+}
+.category{
+    // background-color: red;
+    display: flex; 
+    height:5vh;
+}
+.description{
+    // background-color: red;
+    display: flex; 
+    height: 10vh;
+}
+  
+
+  
+  
+  
