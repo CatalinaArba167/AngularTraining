@@ -14,7 +14,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ProductsAddViewComponent } from './components/presentational/products-add-view/products-add-view.component';
-import { ProductsEditViewComponent } from './components/presentational/products-edit-page/products-edit-view.component';
 import { AuthInterceptor} from './interceptors/auth.interceptor';
 import { AuthenticationViewComponent } from './modules/authentication/components/presentational/authentication-view/authentication-view.component';
 import { AuthenticationComponent } from './modules/authentication/components/containers/authentication/authentication.component';
@@ -31,7 +30,6 @@ import { EditFormComponent } from './components/containers/edit-form/edit-form.c
     ProductDetailsViewComponent,
     ProductsFormViewComponent,
     ProductsAddViewComponent,
-    ProductsEditViewComponent,
     AuthenticationViewComponent,
     AuthenticationComponent,
     AddFormComponent,
