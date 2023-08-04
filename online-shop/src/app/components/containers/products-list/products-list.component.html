@@ -1,1 +1,6 @@
-<app-products-list-view [productList]="products"></app-products-list-view>
+<app-products-list-view 
+(logOutEvent)="logOut()"
+(addToCartEventEmitter)="addToCart($event)" 
+[productList]="products"
+[isAdmin]="isAdmin">
+</app-products-list-view>

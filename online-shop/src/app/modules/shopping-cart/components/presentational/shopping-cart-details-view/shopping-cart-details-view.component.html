@@ -1,39 +1,37 @@
-<html>
-<head>
-    <title>Shopping cart</title>
-</head>
-<body>
-    <div class="body-component">
-        <div class="title-flex-container">
-            <div>
-                <h1>Shopping cart</h1>
-            </div>
-            <div class="buttons-container">
-                <app-icon-button iconType="Checkout" (clickEvent)="onCheckoutButtonClick()"></app-icon-button>
-            </div>
+<div class="body-component">
+  <div class="title-flex-container">
+    <div>
+      <h1>Shopping cart</h1>
+    </div>
+    <div class="buttons-container">
+      <button class="button-default" [routerLink]="['/products']"(click)="placeOrder()">Checkout</button>
+    </div>
+  </div>
+  <table class="table-coponent">
+    <tr>
+      <th>Category</th>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+    <tr *ngFor="let product of productList">
+      <td>{{ product.productCategoryName }}</td>
+      <td>{{ product.productName }}</td>
+      <td>{{ product.productPrice }}</td>
+      <td>
+        <div class="quantity-container">
+          <app-icon-button
+            iconType="-"
+            (click)="decrementQuantity(product)"
+          ></app-icon-button>
+          {{ product.quantity }}
+          <app-icon-button
+            iconType="+"
+            (click)="incrementQuantity(product)"
+          ></app-icon-button>
         </div>
-        <table class="table-coponent">
-            <tr>
-                <th>Category</th>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-            </tr>
-            <tr *ngFor="let product of productList">
-                <td>{{ product. productCategoryName }}</td>
-                <td >{{ product.productName }}</td>
-                <td>{{ product.productPrice }}</td>
-                <td>
-                    <div class="quantity-container">
-                        <app-icon-button iconType="-" (clickEvent)="decrementQuantity(product)"></app-icon-button>
-                        <div>{{product.quantity}}</div>
-                        <app-icon-button iconType="+" (clickEvent)="incrementQuantity(product)"></app-icon-button>
-                    </div>
-                </td>
-            </tr>
-        </table>
-        <app-icon-button iconType="Back" (clickEvent)="onClickBackToProductsList()"></app-icon-button>
-        </div>
-</body>
-</html>
-
+      </td>
+    </tr>
+  </table>
+  <button class="button-default" [routerLink]="['/products']">Back</button>
+</div>

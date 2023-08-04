@@ -1,6 +1,6 @@
-import { ProductAndProductCategoryDto } from "../types/productsAndProductsCategoryDto";
+import { ProductAndProductCategory } from "../types/productsAndProductsCategory";
 
-export const mockProductAndProductCategoryDto: ProductAndProductCategoryDto[] = [
+export const mockProductAndProductCategory: ProductAndProductCategory[] = [
     {
       productId: '1',
       productName: 'Product 1',

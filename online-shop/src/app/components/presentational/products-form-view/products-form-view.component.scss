@@ -1,0 +1,46 @@
+.listing-apply {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .section-heading {
+    color:  rgb(205, 109, 158);
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    color: rgb(226, 145, 187); 
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"] {
+    background-color: rgb(245, 217, 238);
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .buttons-container{
+    width: 30%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+  }
+  .button-default{
+    margin: var(--rounded-margin);
+    border-radius: var(--border-radius);
+    background-color: var(--pink-color);
+    border-color: var( --pink-border-color);
+    font-family: arial, sans-serif;
+    color: var(--pink-font-color);
+    width: 100px;
+    height: 50px;
+  }
+  
+  
+  

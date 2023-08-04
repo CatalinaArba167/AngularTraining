@@ -1,27 +1,23 @@
-import { Component, Input } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
-import { Product } from 'src/app/types/products.types';
-import { ProductAndProductCategoryDto } from 'src/app/types/productsAndProductsCategoryDto';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCategory';
 
 @Component({
   selector: 'app-products-list-view',
   templateUrl: './products-list-view.component.html',
-  styleUrls: ['./products-list-view.component.scss']
+  styleUrls: ['./products-list-view.component.scss'],
 })
 export class ProductsListViewComponent {
-  @Input()  productList :ProductAndProductCategoryDto[] | undefined;
+  @Input() productList: ProductAndProductCategory[] | undefined;
+  @Input() isAdmin:boolean | undefined;
+  @Output() addToCartEventEmitter =
+    new EventEmitter<ProductAndProductCategory>();
+  @Output() logOutEvent =
+    new EventEmitter<null>();
 
-  constructor(private router: Router) {
+  addToCart(product: ProductAndProductCategory): void {
+    this.addToCartEventEmitter.emit(product);
   }
-
-
-
-  showProductDetails(ProductAndProductCategoryDto: ProductAndProductCategoryDto): void {
-    const navigationExtras: NavigationExtras = {
-      state: {
-        ProductAndProductCategoryDto: ProductAndProductCategoryDto,
-      },
-    };
-    this.router.navigate(['/details', ProductAndProductCategoryDto.productId], navigationExtras);
+  logOut(){
+    this.logOutEvent.emit();
   }
 }

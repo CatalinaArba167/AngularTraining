@@ -1,15 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { products } from 'src/app/mocks/products.mocks';
 import { Product } from 'src/app/types/products.types';
-import { ProductAndProductCategoryDto } from 'src/app/types/productsAndProductsCategoryDto';
-import { mockProductAndProductCategoryDto } from 'src/app/mocks/product-and-product-category-dto-mock';
+import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCategory';
+import { mockProductAndProductCategory } from 'src/app/mocks/product-and-product-category-dto-mock';
+import { environment } from 'src/environments/environment';
+import { ProductService } from 'src/app/services/products.service';
+
 @Component({
   selector: 'app-products-list',
-  templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.scss']
+  templateUrl: './products-list.component.html'
 })
-export class ProductsListComponent {
-  products :ProductAndProductCategoryDto[]=mockProductAndProductCategoryDto;
-  constructor(private http: HttpClient) {}
+export class ProductsListComponent implements OnInit {
+  products: ProductAndProductCategory[] = [];
+  isAdmin:boolean=false;
+  constructor(private productService: ProductService) {
+  }
+
+  ngOnInit(): void {
+    this.reloadPage();
+    this.productService.authProfile();
+    this.isAdmin=this.productService.isAdmin();
+  }
+
+  reloadPage(){
+    this.productService.getProducts().subscribe((data) => {
+      this.products = data;
+    });
+  }
+
+  addToCart(product: ProductAndProductCategory) {
+    this.productService.addToShoppingCart(product);
+  }
+
+  logOut(){
+    this.productService.logOut();
+  }
+
 }

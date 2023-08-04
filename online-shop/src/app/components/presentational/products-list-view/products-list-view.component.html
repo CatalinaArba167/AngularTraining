@@ -1,32 +1,40 @@
-<html>
-<head>
-    <title>Products list</title>
-</head>
-<body>
-    <div class="body-component">
-        <div class="title-flex-container">
-            <div>
-                <h1>Products</h1>
-            </div>
-            <div class="buttons-container">
-                <button class="button-default" [routerLink]="['/shop']">Shop</button>
-                <button class="button-default">Add</button>
-            </div>
-        </div>
-        <table class="table-coponent">
-            <tr>
-                <th>Category</th>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Actions</th>
-            </tr>
-            <tr *ngFor="let product of productList" >
-                <td>{{ product.productCategoryName }}</td>
-                <td ><a class="product-link" (click)="showProductDetails(product)">{{ product.productName }}</a></td>
-                <td>{{ product.productPrice }}</td>
-                <td> <button class="button-default" (click)="showProductDetails(product)">Show details</button></td>
-            </tr>
-        </table>
+<div class="body-component">
+  <div class="title-flex-container">
+    <div>
+      <h1>Products</h1>
     </div>
-</body>
-</html>
+    <div class="buttons-container">
+      <button class="button-default" [routerLink]="['/shop']">Shop</button>
+      <button class="button-default" [disabled]="!this.isAdmin" [routerLink]="['/add']">Add</button>
+      <button class="button-default" (click)="logOut()" [routerLink]="['/auth']">Log out</button>
+    </div>
+  </div>
+  <table class="table-coponent">
+    <tr>
+      <th>Category</th>
+      <th>Product Name</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let product of productList">
+      <td>{{ product.productCategoryName }}</td>
+      <td>
+        <a class="product-link" [routerLink]="['/details', product.productId]">
+          {{ product.productName }}
+        </a>
+      </td>
+      <td>{{ product.productPrice }}</td>
+      <td>
+        <button
+          class="button-default"
+          [routerLink]="['/details', product.productId]"
+        >
+          Show details
+        </button>
+        <button class="button-remove-from-cart" (click)="addToCart(product)">
+          Buy
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,1 +1,1 @@
-<app-products-details-view [product]="product"></app-products-details-view>
+<app-products-details-view (deleteProductEventEmitter)="deleteProduct($event)"[product]="product"[isAdmin]="isAdmin"></app-products-details-view>
