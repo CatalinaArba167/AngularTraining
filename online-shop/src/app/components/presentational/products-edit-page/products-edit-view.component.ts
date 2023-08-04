@@ -6,8 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products-edit-view',
-  templateUrl: './products-edit-view.component.html',
-  styleUrls: ['./products-edit-view.component.scss']
+  templateUrl: './products-edit-view.component.html'
 })
 export class ProductsEditViewComponent implements OnInit {
   productId:string | undefined |null;

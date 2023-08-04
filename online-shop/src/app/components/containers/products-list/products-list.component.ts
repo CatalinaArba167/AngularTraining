@@ -9,8 +9,7 @@ import { ProductService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-products-list',
-  templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.scss'],
+  templateUrl: './products-list.component.html'
 })
 export class ProductsListComponent implements OnInit, OnChanges {
   products: ProductAndProductCategory[] = [];

@@ -7,8 +7,7 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-authentication',
-  templateUrl: './authentication.component.html',
-  styleUrls: ['./authentication.component.scss']
+  templateUrl: './authentication.component.html'
 })
 export class AuthenticationComponent  {
   constructor(private authService:AuthService,private router: Router){}

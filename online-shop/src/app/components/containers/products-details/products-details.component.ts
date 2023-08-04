@@ -8,8 +8,7 @@ import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-products-details',
-  templateUrl: './products-details.component.html',
-  styleUrls: ['./products-details.component.scss'],
+  templateUrl: './products-details.component.html'
 })
 export class ProductsDetailsComponent implements OnInit {
   product: ProductAndProductCategory | undefined;

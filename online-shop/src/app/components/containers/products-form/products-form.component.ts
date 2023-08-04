@@ -7,8 +7,7 @@ import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCate
 
 @Component({
   selector: 'app-products-form',
-  templateUrl: './products-form.component.html',
-  styleUrls: ['./products-form.component.scss'],
+  templateUrl: './products-form.component.html'
 })
 export class ProductsFormComponent implements OnInit {
   @Input() productId:string | undefined |  null;
