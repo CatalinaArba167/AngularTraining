@@ -63,11 +63,11 @@ export class ProductsFormViewComponent implements OnInit, OnChanges {
     });
   }
   handleSave() {
-    if (this.product) this.editProductHandle();
-    else this.addProductHandle();
+    if (this.product) this.handleAddProduct();
+    else this.handleAddProduct();
   }
 
-  addProductHandle(){
+  handleAddProduct(){
     let newProduct: ProductAndProductCategory = {
       productName: this.myForm.value.name ?? '',
       productCategoryName: this.myForm.value.category ?? '',
@@ -83,7 +83,7 @@ export class ProductsFormViewComponent implements OnInit, OnChanges {
     this.addProductEvent.emit(newProduct);
   }
 
-  editProductHandle() {
+  handleEditProduct() {
     if (this.product) {
       let newProduct: ProductAndProductCategory = {
         productName: this.myForm.value.name ?? '',
