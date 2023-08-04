@@ -4,16 +4,15 @@ import {
   Input,
   OnChanges,
   OnInit,
+  Optional,
   Output,
   SimpleChanges,
 } from '@angular/core';
 import {
-  FormBuilder,
   FormControl,
   FormGroup,
-  Validators,
+  Validators
 } from '@angular/forms';
-import { ProductService } from 'src/app/services/products.service';
 import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCategory';
 
 @Component({
@@ -22,15 +21,12 @@ import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCate
   styleUrls: ['./products-form-view.component.scss'],
 })
 export class ProductsFormViewComponent implements OnInit, OnChanges {
-  @Input() product: ProductAndProductCategory | undefined;
-  @Input() operation: string | undefined;
-  @Output() updateProductEvent = new EventEmitter<ProductAndProductCategory>();
-  @Output() addProductEvent = new EventEmitter<ProductAndProductCategory>();
+  @Input() @Optional() product: ProductAndProductCategory | undefined;
+  @Output() @Optional() updateProductEvent = new EventEmitter<ProductAndProductCategory>();
+  @Output()@Optional() addProductEvent = new EventEmitter<ProductAndProductCategory>();
   myForm!: FormGroup;
 
-  isAdd():boolean{
-    return this.operation==="add";
-  }
+
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.product) {
@@ -66,17 +62,12 @@ export class ProductsFormViewComponent implements OnInit, OnChanges {
       ]),
     });
   }
-  doOperation() {
-    console.log("doOperation:"+this.operation)
-    if (this.operation === 'edit') {
-      this.submitApplication();
-    } else {
-      if (this.operation === 'add') {
-        this.createApplication();
-      }
-    }
+  handleSave() {
+    if (this.product) this.editProductHandle();
+    else this.addProductHandle();
   }
-  createApplication(){
+
+  addProductHandle(){
     let newProduct: ProductAndProductCategory = {
       productName: this.myForm.value.name ?? '',
       productCategoryName: this.myForm.value.category ?? '',
@@ -91,7 +82,8 @@ export class ProductsFormViewComponent implements OnInit, OnChanges {
     };
     this.addProductEvent.emit(newProduct);
   }
-  submitApplication() {
+
+  editProductHandle() {
     if (this.product) {
       let newProduct: ProductAndProductCategory = {
         productName: this.myForm.value.name ?? '',
@@ -117,7 +109,6 @@ export class ProductsFormViewComponent implements OnInit, OnChanges {
     if (!imageUrl.match(/\.(jpeg|jpg|png|gif)$/i)) {
       return { invalidImageUrl: true };
     }
-
     return null;
   }
 }

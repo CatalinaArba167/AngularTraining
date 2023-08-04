@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/modules/shared/types/users.types';
 
 @Component({

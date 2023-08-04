@@ -1,7 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCategory';
-import { ProductsFormViewComponent } from '../products-form-view/products-form-view.component';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

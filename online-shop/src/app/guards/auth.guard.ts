@@ -16,11 +16,11 @@ export class AuthGuard implements CanActivate {
       return true;
     }
     if (!this.authService.getToken()) {
-      return this.router.parseUrl('/auth');
-    } else if (!isUserAdmin && isAddOrEditRoute) {
+      return this.router.parseUrl('/auth');}
+     else if (!isUserAdmin && isAddOrEditRoute) {
       return this.router.parseUrl('/products'); 
-    } else {
-      return true;
+    } 
+    else { return true;
     }
   }
 }

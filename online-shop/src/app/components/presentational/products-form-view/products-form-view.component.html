@@ -1,6 +1,6 @@
-<h1 *ngIf="isAdd() && product"> Add {{product.productName}}</h1>
-<h1 *ngIf="!isAdd() && product"> Edit {{product.productName}}</h1>
-<form [formGroup]="myForm" (submit)="submitApplication()">
+<h1 *ngIf="product"> Add {{product.productName}}</h1>
+<h1 *ngIf="product"> Edit {{product.productName}}</h1>
+<form [formGroup]="myForm" (submit)="handleSave()">
   <div>
     <label for="name"><b>Name</b></label>
     <input id="name" type="text" formControlName="name" required />
@@ -77,5 +77,5 @@
 </form>
 <div class="buttons-container">
     <button class="button-default" [routerLink]="['/products']" >Cancel</button>
-    <button class="button-default" [routerLink]="['/products']" (click)="doOperation()" [disabled]="myForm.invalid">Save</button>
+    <button class="button-default" [routerLink]="['/products']" (click)="handleSave()" [disabled]="myForm.invalid">Save</button>
   </div>

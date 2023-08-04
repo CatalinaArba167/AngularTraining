@@ -6,17 +6,18 @@ import { ShoppingCartDetailsComponent } from './modules/shopping-cart/components
 import { ProductsEditViewComponent } from './components/presentational/products-edit-page/products-edit-view.component';
 import { ProductsAddViewComponent } from './components/presentational/products-add-view/products-add-view.component';
 import { AuthenticationComponent } from './modules/authentication/components/containers/authentication/authentication.component';
-import { ProductsFormComponent } from './components/containers/products-form/products-form.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AddFormComponent } from './components/containers/add-form/add-form.component';
+import { EditFormComponent } from './components/containers/edit-form/edit-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: 'auth', component: AuthenticationComponent },
   { path: 'products', component: ProductsListComponent },
   { path: 'details/:id', component: ProductDetailsComponent },
-  { path: 'shop', component: ShoppingCartDetailsComponent },
-  { path: 'edit/:id', component: ProductsFormComponent, canActivate: [AuthGuard] }, 
-  { path: 'add', component: ProductsFormComponent, canActivate: [AuthGuard] },
+  { path: 'shop', component: ShoppingCartDetailsComponent,canActivate: [AuthGuard] },
+  { path: 'edit/:id', component: EditFormComponent, canActivate: [AuthGuard] }, 
+  { path: 'add', component:AddFormComponent , canActivate: [AuthGuard] },
 ];
 
 @NgModule({

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { first } from 'rxjs';
 import { User } from 'src/app/modules/shared/types/users.types';
 import { AuthService } from 'src/app/services/auth.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-authentication',

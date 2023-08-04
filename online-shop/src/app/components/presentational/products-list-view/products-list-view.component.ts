@@ -1,7 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
-import { ProductService } from 'src/app/services/products.service';
-import { Product } from 'src/app/types/products.types';
 import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCategory';
 
 @Component({
@@ -23,6 +20,4 @@ export class ProductsListViewComponent {
   logOut(){
     this.logOutEvent.emit();
   }
-
-
 }
