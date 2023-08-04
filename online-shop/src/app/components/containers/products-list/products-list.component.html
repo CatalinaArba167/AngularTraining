@@ -1,5 +1,6 @@
 <app-products-list-view 
 (logOutEvent)="logOut()"
 (addToCartEventEmitter)="addToCart($event)" 
-[productList]="products">
+[productList]="products"
+[isAdmin]="isAdmin">
 </app-products-list-view>

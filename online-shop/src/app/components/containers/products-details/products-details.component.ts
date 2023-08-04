@@ -13,11 +13,13 @@ import { environment } from 'src/environments/environment.development';
 })
 export class ProductsDetailsComponent implements OnInit {
   product: ProductAndProductCategory | undefined;
-
+  isAdmin!:boolean
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService
   ) {}
+
+
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -25,6 +27,7 @@ export class ProductsDetailsComponent implements OnInit {
       this.productService.getProductById(id).subscribe((data) => {
         this.product = data;
       });
+    this.isAdmin=this.productService.isAdmin();
 
   }
 

@@ -5,7 +5,7 @@
     </div>
     <div class="buttons-container">
       <button class="button-default" [routerLink]="['/shop']">Shop</button>
-      <button class="button-default" [routerLink]="['/add']">Add</button>
+      <button class="button-default" [disabled]="!this.isAdmin" [routerLink]="['/add']">Add</button>
       <button class="button-default" (click)="logOut()" [routerLink]="['/auth']">Log out</button>
     </div>
   </div>

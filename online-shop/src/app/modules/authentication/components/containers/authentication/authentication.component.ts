@@ -24,4 +24,5 @@ export class AuthenticationComponent  {
                     this.router.navigate(["/products"]);
                 })        
     }
+
   }

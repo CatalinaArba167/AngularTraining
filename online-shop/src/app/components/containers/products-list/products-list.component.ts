@@ -14,11 +14,12 @@ import { ProductService } from 'src/app/services/products.service';
 })
 export class ProductsListComponent implements OnInit, OnChanges {
   products: ProductAndProductCategory[] = [];
-  
+  isAdmin:boolean=false;
   constructor(private productService: ProductService) {
   }
   ngOnChanges(changes: SimpleChanges): void {
     this.reloadPage();
+    this.isAdmin=this.productService.isAdmin();
   }
 
   ngOnInit(): void {
@@ -39,4 +40,5 @@ export class ProductsListComponent implements OnInit, OnChanges {
   logOut(){
     this.productService.logOut();
   }
+
 }

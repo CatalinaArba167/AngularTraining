@@ -8,6 +8,7 @@ import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCate
 })
 export class ProductsDetailsViewComponent {
   @Input() product: ProductAndProductCategory | undefined;
+  @Input()isAdmin!:boolean
   @Output() deleteProductEventEmitter = new EventEmitter<string>();
   
   deleteProduct(productId: string):  void {

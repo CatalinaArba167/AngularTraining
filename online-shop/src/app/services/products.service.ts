@@ -13,6 +13,9 @@ export class ProductService {
     private http: HttpClient
   ) {}
 
+  isAdmin():boolean{
+    return this.authService.isAdmin();
+  }
   logOut(){
     this.authService.logout();
   }
@@ -34,23 +37,23 @@ export class ProductService {
 
   getProductById(id: string): Observable<ProductAndProductCategory> {
     return this.http.get<ProductAndProductCategory>(
-      environment.apiUrl + '/products/' + id
+      environment.urlBackend + '/products/' + id
     );
   }
 
   deleteProduct(id: string): Observable<ProductAndProductCategory> {
     return this.http.delete<ProductAndProductCategory>(
-      environment.apiUrl + '/products/' + id
+      environment.urlBackend + '/products/' + id
     );
   }
 
   editProduct(newProduct:ProductAndProductCategory):Observable<ProductAndProductCategory>
   {
-    return this.http.put<ProductAndProductCategory>(environment.apiUrl + '/products', newProduct);
+    return this.http.put<ProductAndProductCategory>(environment.urlBackend + '/products', newProduct);
   }
 
   addProduct(newProduct:ProductAndProductCategory):Observable<ProductAndProductCategory>
   {
-    return this.http.post<ProductAndProductCategory>(environment.apiUrl + '/products', newProduct);
+    return this.http.post<ProductAndProductCategory>(environment.urlBackend + '/products', newProduct);
   }
 }

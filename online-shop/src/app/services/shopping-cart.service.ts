@@ -72,7 +72,7 @@ export class ShoppingCartService {
       };
       order.orderDetailDtoList.push(orderDetail);
     }
-    this.http.post<any>(environment.apiUrl+'/orders', order)
+    this.http.post<any>(environment.urlBackend+'/orders', order)
   .pipe(
     catchError((error) => {
       this.openSnackBar('Error creating order', 'Close');

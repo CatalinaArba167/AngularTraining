@@ -11,6 +11,7 @@ import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCate
 })
 export class ProductsListViewComponent {
   @Input() productList: ProductAndProductCategory[] | undefined;
+  @Input() isAdmin:boolean | undefined;
   @Output() addToCartEventEmitter =
     new EventEmitter<ProductAndProductCategory>();
   @Output() logOutEvent =
@@ -22,5 +23,6 @@ export class ProductsListViewComponent {
   logOut(){
     this.logOutEvent.emit();
   }
+
 
 }

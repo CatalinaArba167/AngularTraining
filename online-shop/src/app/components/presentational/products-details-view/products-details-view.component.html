@@ -4,6 +4,7 @@
     <div class="buttons-container">
       <button
         class="button-default"
+        [disabled]="!this.isAdmin"
         *ngIf="product"
         [routerLink]="['/edit', product.productId]"
       >
@@ -11,6 +12,7 @@
       </button>
       <button
         class="button-default"
+        [disabled]="!this.isAdmin"
         *ngIf="product"
         (click)="deleteProduct(product.productId)"
         [routerLink]="['']"
