@@ -17,6 +17,11 @@ export class ProductService {
     this.authService.logout();
   }
 
+  authProfile()
+  {
+    this.authService.authProfileInfo();
+  }
+
   addToShoppingCart(product: ProductAndProductCategory) {
     this.shoppingCartService.addToShoppingCart(product);
   }
@@ -41,13 +46,11 @@ export class ProductService {
 
   editProduct(newProduct:ProductAndProductCategory):Observable<ProductAndProductCategory>
   {
-    console.log("put");
     return this.http.put<ProductAndProductCategory>(environment.apiUrl + '/products', newProduct);
   }
 
   addProduct(newProduct:ProductAndProductCategory):Observable<ProductAndProductCategory>
   {
-    console.log("post");
     return this.http.post<ProductAndProductCategory>(environment.apiUrl + '/products', newProduct);
   }
 }

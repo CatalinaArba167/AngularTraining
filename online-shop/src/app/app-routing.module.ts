@@ -9,12 +9,12 @@ import { AuthenticationComponent } from './modules/authentication/components/con
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  { path: 'auth', component: AuthenticationComponent },
   { path: 'products', component: ProductsListComponent },
   { path: 'details/:id', component: ProductsDetailsComponent },
   { path: 'shop', component:   ShoppingCartDetailsComponent },
   { path: 'edit/:id', component: ProductsEditViewComponent },
-  { path: 'add', component: ProductsAddViewComponent },
-  { path: 'auth', component: AuthenticationComponent },
+  { path: 'add', component: ProductsAddViewComponent }
 ];
 
 @NgModule({

@@ -10,13 +10,8 @@ import { environment } from 'src/environments/environment';
   templateUrl: './authentication.component.html',
   styleUrls: ['./authentication.component.scss']
 })
-export class AuthenticationComponent {
-  error = '';
-  constructor(private authService:AuthService,private router: Router){
-    if (this.authService.getToken()) { 
-      this.router.navigate(['/products']);
-  }
-  }
+export class AuthenticationComponent  {
+  constructor(private authService:AuthService,private router: Router){}
 
   authenticate(user:User){
     console.log(' Username:', user.username);
@@ -27,8 +22,6 @@ export class AuthenticationComponent {
             .subscribe(
                 data => {
                     this.router.navigate(["/products"]);
-                })
-              
+                })        
     }
-
   }

@@ -14,15 +14,16 @@ import { ProductService } from 'src/app/services/products.service';
 })
 export class ProductsListComponent implements OnInit, OnChanges {
   products: ProductAndProductCategory[] = [];
+  
   constructor(private productService: ProductService) {
-    this.reloadPage();
   }
   ngOnChanges(changes: SimpleChanges): void {
     this.reloadPage();
   }
 
   ngOnInit(): void {
-    this.reloadPage()
+    this.reloadPage();
+    this.productService.authProfile();
   }
 
   reloadPage(){

@@ -9,5 +9,5 @@ export const authGuard = () => {
   if (authService.getToken()) {
     return true;
   }
-  return router.parseUrl('/');
+  return router.parseUrl('/auth');
 };
