@@ -7,15 +7,12 @@ import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCate
   templateUrl: './add-form.component.html'
 })
 export class AddFormComponent {
-  product: ProductAndProductCategory | undefined;
  
   constructor(
     private productService: ProductService
   ) {}
 
   addProduct(newProduct: ProductAndProductCategory) {
-    this.productService.addProduct(newProduct).subscribe((data) => {
-      this.product = data;
-    });
+    this.productService.addProduct(newProduct).subscribe();
   }
 }
