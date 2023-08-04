@@ -8,6 +8,27 @@
   width: 100px;
   height: 50px;
 }
+
+.button-add-to-cart{
+  margin: var(--rounded-margin);
+  border-radius: var(--border-radius); /* This is an example to show the rounded corner; you can use the variable here too */
+  background-color: var(--red-color);
+  border-color: var( --red-color);
+  font-family: arial, sans-serif;
+  color: var(black);
+  width: 100px;
+  height: 50px;
+}
+.button-remove-from-cart{
+  margin: var(--rounded-margin);
+  border-radius: var(--border-radius); /* This is an example to show the rounded corner; you can use the variable here too */
+  background-color: var(--green-color);
+  border-color: var( ---green-color);
+  font-family: arial, sans-serif;
+  color: var(Black);
+  width: 100px;
+  height: 50px;
+}
 .title-flex-container {
     display: flex;
     justify-content: space-between;

@@ -1,0 +1,34 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { first } from 'rxjs';
+import { User } from 'src/app/modules/shared/types/users.types';
+import { AuthService } from 'src/app/services/auth.service';
+import { environment } from 'src/environments/environment';
+
+@Component({
+  selector: 'app-authentication',
+  templateUrl: './authentication.component.html',
+  styleUrls: ['./authentication.component.scss']
+})
+export class AuthenticationComponent {
+  error = '';
+  constructor(private authService:AuthService,private router: Router){
+    if (this.authService.getToken()) { 
+      this.router.navigate(['/products']);
+  }
+  }
+
+  authenticate(user:User){
+    console.log(' Username:', user.username);
+    console.log(' Password:', user.password);
+
+    this.authService.login(user)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    this.router.navigate(["/products"]);
+                })
+              
+    }
+
+  }

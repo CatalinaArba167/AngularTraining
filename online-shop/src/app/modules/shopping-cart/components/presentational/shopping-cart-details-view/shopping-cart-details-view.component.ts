@@ -1,30 +1,36 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/types/products.types';
-import { ProductAndProductCategoryDto } from 'src/app/types/productsAndProductsCategoryDto';
+import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCategory';
 
 @Component({
   selector: 'app-shopping-cart-details-view',
   templateUrl: './shopping-cart-details-view.component.html',
-  styleUrls: ['./shopping-cart-details-view.component.scss']
+  styleUrls: ['./shopping-cart-details-view.component.scss'],
 })
 export class ShoppingCartDetailsViewComponent {
-  @Input()  productList :ProductAndProductCategoryDto[] | undefined;
+  @Input() productList: ProductAndProductCategory[] | undefined;
+  @Output() incrementQuantityEventEmitter =
+    new EventEmitter<ProductAndProductCategory>();
+  @Output() decrementQuantityEventEmitter =
+    new EventEmitter<ProductAndProductCategory>();
+  @Output() placeOrderEventEmitter =
+    new EventEmitter<any>();
 
-  constructor(private router: Router) {}
 
-  public onCheckoutButtonClick(){
-    console.log("Checkout");
+  public onCheckoutButtonClick() {
+    console.log('Checkout');
   }
-  public onClickBackToProductsList(){
-    this.router.navigate(['/']);
+  public incrementQuantity(product: ProductAndProductCategory): void {
+    this.incrementQuantityEventEmitter.emit(product);
   }
-  public incrementQuantity(product:ProductAndProductCategoryDto):void {
-    if(product.quantity)
-      product.quantity=product.quantity+1;
+  public decrementQuantity(product: ProductAndProductCategory): void {
+    this.decrementQuantityEventEmitter.emit(product);
   }
-  public decrementQuantity(product:ProductAndProductCategoryDto):void {
-    if(product.quantity && product.quantity>1)
-      product.quantity=product.quantity-1;
+
+  public placeOrder(){
+    if ( window.confirm('Are you sure you want to checkout?')) {
+    this.placeOrderEventEmitter.emit();
+
+    }
   }
 }

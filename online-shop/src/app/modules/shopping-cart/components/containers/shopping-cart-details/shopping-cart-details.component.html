@@ -1,1 +1,1 @@
-<app-shopping-cart-details-view [productList]="products"></app-shopping-cart-details-view>
+<app-shopping-cart-details-view (placeOrderEventEmitter)="placeOrder()" (incrementQuantityEventEmitter)="incrementQuantity($event)"  (decrementQuantityEventEmitter)="decrementQuantity($event)" [productList]="products"></app-shopping-cart-details-view>
