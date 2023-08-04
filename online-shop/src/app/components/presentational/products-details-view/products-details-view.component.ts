@@ -6,7 +6,7 @@ import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCate
   templateUrl: './products-details-view.component.html',
   styleUrls: ['./products-details-view.component.scss'],
 })
-export class ProductsDetailsViewComponent {
+export class ProductDetailsViewComponent {
   @Input() product: ProductAndProductCategory | undefined;
   @Input()isAdmin!:boolean
   @Output() deleteProductEventEmitter = new EventEmitter<string>();

@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment.development';
   selector: 'app-products-details',
   templateUrl: './products-details.component.html'
 })
-export class ProductsDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit {
   product: ProductAndProductCategory | undefined;
   isAdmin!:boolean
   constructor(

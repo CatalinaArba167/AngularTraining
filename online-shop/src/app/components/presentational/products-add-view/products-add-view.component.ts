@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './products-add-view.component.html'
 })
 export class ProductsAddViewComponent {
-  operation:string="add";
-  
 }

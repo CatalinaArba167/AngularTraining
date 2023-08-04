@@ -1,3 +1,5 @@
+<h1 *ngIf="isAdd() && product"> Add {{product.productName}}</h1>
+<h1 *ngIf="!isAdd() && product"> Edit {{product.productName}}</h1>
 <form [formGroup]="myForm" (submit)="submitApplication()">
   <div>
     <label for="name"><b>Name</b></label>

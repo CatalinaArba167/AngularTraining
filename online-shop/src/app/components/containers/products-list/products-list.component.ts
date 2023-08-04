@@ -11,19 +11,16 @@ import { ProductService } from 'src/app/services/products.service';
   selector: 'app-products-list',
   templateUrl: './products-list.component.html'
 })
-export class ProductsListComponent implements OnInit, OnChanges {
+export class ProductsListComponent implements OnInit {
   products: ProductAndProductCategory[] = [];
   isAdmin:boolean=false;
   constructor(private productService: ProductService) {
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    this.reloadPage();
-    this.isAdmin=this.productService.isAdmin();
   }
 
   ngOnInit(): void {
     this.reloadPage();
     this.productService.authProfile();
+    this.isAdmin=this.productService.isAdmin();
   }
 
   reloadPage(){

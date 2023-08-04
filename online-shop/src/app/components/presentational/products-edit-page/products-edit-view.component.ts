@@ -8,14 +8,8 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-products-edit-view',
   templateUrl: './products-edit-view.component.html'
 })
-export class ProductsEditViewComponent implements OnInit {
-  productId:string | undefined |null;
-  operation:string="edit";
+export class ProductsEditViewComponent {
   constructor(
     private route: ActivatedRoute
   ) {}
-
-  ngOnInit(): void {
-    this.productId = this.route.snapshot.paramMap.get('id');
-  }
 }

@@ -10,22 +10,23 @@ import { ProductAndProductCategory } from 'src/app/types/productsAndProductsCate
   templateUrl: './products-form.component.html'
 })
 export class ProductsFormComponent implements OnInit {
-  @Input() productId:string | undefined |  null;
-  @Input() operation:string | undefined;
-
+  productId!:string|null  ;
   product: ProductAndProductCategory | undefined;
+  operation?: string ;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService
   ) {}
 
   ngOnInit(): void {
-    console.log(this.operation);
+    this.productId = this.route.snapshot.paramMap.get('id');
     if (this.productId) {
       this.productService.getProductById(this.productId).subscribe((data) => {
         this.product = data;
       });
+      this.operation="edit" ;
     }
+    this.operation="add" ;
   }
   updateProduct(newProduct: ProductAndProductCategory) {
     this.productService.editProduct(newProduct).subscribe((data) => {

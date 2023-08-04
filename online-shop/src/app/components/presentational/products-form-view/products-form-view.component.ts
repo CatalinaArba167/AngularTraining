@@ -28,6 +28,10 @@ export class ProductsFormViewComponent implements OnInit, OnChanges {
   @Output() addProductEvent = new EventEmitter<ProductAndProductCategory>();
   myForm!: FormGroup;
 
+  isAdd():boolean{
+    return this.operation==="add";
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (this.product) {
       this.myForm.patchValue({
